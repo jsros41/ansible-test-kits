@@ -17,7 +17,11 @@ $6$OFaxLw1Zb0IKfiNs$8oylvyPFpC9jIOV1dJqyDWy/R2688qjUZFUTW9gfADgEK1XeWhs7YX7/B7Go
 
 =========================================================================================================================
 
+To Check Ansible Playbook Syntax:
+# ansible-playbook <playbook.yml> --syntax-check
 
+example:
+# ansible-playbook create-user-passwd-sudo-authkey.yml --syntax-check
 =========================================================================================================================
 
 
