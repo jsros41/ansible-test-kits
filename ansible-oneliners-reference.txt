@@ -2,6 +2,9 @@ ANSIBLE ONE-LINERS
 To Copy a file from Ansible master server to inventory list:
 $ ansible -m copy -a src=/opt/testcopy.txt dest=/tmp/testcopy.txt -i hosts.list  all
 
+To Copy a file from Ansible master and assign file permissions and ownership on the destination hosts:
+$ ansible -i hosts.list  all -u root -k -m copy -a "src=test-tns.ora dest=/var/tmp/test-tns.ora mode=0755  backup=yes owner=oracle group=dba"
+
 To Run shell commands on inventory list:
 $ ansible -i hosts.list -m shell -a "cat /etc/centos-release; uname -r; uptime" all
 
@@ -9,3 +12,5 @@ To Run a Ping Test from Ansible Master to Inventory List:
 $ ansible -i hosts.list -m ping  all
 
 
+To Run shell commands via Ansible as root, use the "-u root , -k (to prompt for the  password)": 
+$ ansible -i hosts.list all -m dnf -a name=nmap -u root -k
