@@ -1,0 +1,11 @@
+ANSIBLE ONE-LINERS
+To Copy a file from Ansible master server to inventory list:
+$ ansible -m copy -a src=/opt/testcopy.txt dest=/tmp/testcopy.txt -i hosts.list  all
+
+To Run shell commands on inventory list:
+$ ansible -i hosts.list -m shell -a "cat /etc/centos-release; uname -r; uptime" all
+
+To Run a Ping Test from Ansible Master to Inventory List:
+$ ansible -i hosts.list -m ping  all
+
+
