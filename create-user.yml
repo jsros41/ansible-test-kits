@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  tasks: 
+
+   - name: create simone user
+     user:
+       name: simone
+       groups: dba
+
+   - name: create app user
+     user:
+       name: appuser
+       groups: apps 
+

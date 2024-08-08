@@ -1,0 +1,37 @@
+---
+- hosts: all
+  name: add users and groups
+  tasks:
+  - name: add groups
+    group:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - network
+    - dev
+    - sysadmin
+    - storage
+    - itsec
+    - dba
+    - nms
+  - name: add user sunshine
+    user: 
+      name: sunshine
+      state: present
+      groups:
+      - dba
+      - dev
+  - name: add user amber
+    user:
+      name: amber
+      state: present
+      groups:
+      - itsec
+  - name: add user anne
+    user:
+      name: anne
+      state: present
+      groups:
+      - dev
+      - network	 
+      - nms
