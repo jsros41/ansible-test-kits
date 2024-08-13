@@ -1,0 +1,15 @@
+---
+- hosts: nginx
+  tasks:
+    - name: install nginx
+      package:
+        name: nginx
+        state: latest 
+          
+- hosts: wordpress
+  tasks:
+    - name: install wordpress
+      package:
+        name: wordpress
+        state: latest 
+

@@ -14,3 +14,7 @@ $ ansible -i hosts.list -m ping  all
 
 To Run shell commands via Ansible as root, use the "-u root , -k (to prompt for the  password)": 
 $ ansible -i hosts.list all -m dnf -a name=nmap -u root -k
+
+To Run an Ansible playbook as root user:
+$ ansible-playbook -i hosts.list playbook.yml  -u root  -k
+

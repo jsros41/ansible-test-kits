@@ -1,0 +1,33 @@
+##### TIPS AND TRICKS #####
+
+1. to create a "hashed" password:
+# mkpasswd 
+(type password you want)
+-this generates a shorter hash or set of characters -less secure 
+
+# mkpasswd --method=sha-512
+(type the password you want to create)
+-this will generate a longer set of characters/hash  thus a more secured password you can paste in the ansible password section to automate user creation
+
+example:
+[root@cs09-master .ssh]# mkpasswd --method=sha-512
+Password:  (i typed here "topGun")
+$6$OFaxLw1Zb0IKfiNs$8oylvyPFpC9jIOV1dJqyDWy/R2688qjUZFUTW9gfADgEK1XeWhs7YX7/B7GoOczcng9WOtoEoiz.iYoWRfldw.
+[root@cs09-master .ssh]#
+
+=========================================================================================================================
+
+
+=========================================================================================================================
+
+
+=========================================================================================================================
+
+
+=========================================================================================================================
+
+
+=========================================================================================================================
+
+
+=========================================================================================================================

@@ -1,0 +1,27 @@
+
+---
+# To run this playbook, type: ansible-playbook -i hosts.list create-user-passwd-sudo-authkey.yml -k
+# password for new users are set to "topGun1"
+#
+- hosts: all
+  remote_user: root
+  vars:
+    NORMAL_USER_NAME: 'infra-user' 
+  tasks:
+    - name: "create regular user called infra-user"
+      user:
+        name: "{{ NORMAL_USER_NAME }}"
+        password: '$y$j9T$ZtfHacwNpttGLYBqtyR8a1$eIuiluKUKvjppD3ewGxFL.5P6AADmC1oFA3lc8muaD7'
+        shell: /bin/bash
+
+    - name: "add authorized key"
+      authorized_key:
+        user: "{{ NORMAL_USER_NAME }}"
+        key: "{{ lookup('file', '~/.ssh/ansible.pub') }}"
+
+    - name: "add normal user to sudoers"
+      lineinfile:
+        dest: /etc/sudoers
+        regexp: "{{ NORMAL_USER_NAME }} ALL"  
+        line: "{{ NORMAL_USER_NAME }} ALL=(ALL) ALL"
+        state: present
